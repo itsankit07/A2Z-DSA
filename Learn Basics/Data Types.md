@@ -2,7 +2,7 @@ Let's delve into each data type in C++ in more detail:
 
 Basic Data Types:
 
-1. **int:**
+1. **int:** 
    - Size: Typically 4 bytes.
    - Range: -2,147,483,648 to 2,147,483,647.
 
