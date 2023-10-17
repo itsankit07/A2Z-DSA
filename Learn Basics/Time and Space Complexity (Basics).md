@@ -69,3 +69,59 @@ Let’s understand these three terms considering the following piece of code:
 **Best Case:** This term refers to the case where the code takes the least amount of time to get executed. For example, if the mark is 10(i.e. < 25), only the first line will be executed and the rest of the lines will be skipped. So, the least amount of steps i.e. only 2 steps are required in this case. This is an example of the best case.
 **Worst Case:** This term refers to the case where the code takes the maximum amount of time to get executed. For example, if the mark is 70(i.e. > 65), the last line will be executed after checking all the above conditions. So, the maximum amount of steps i.e. 4 steps are required in this case. This is an example of the worst case.
 **Average Case:** This term is pretty self-explanatory. This is basically the case between the best and the worst.
+
+
+Now, as we always want that our system serves the maximum number of clients, we need to calculate the time complexity for the worst-case scenario. With this, we can actually judge the robustness of any code or any system.
+
+**2. Avoid including the constant terms:**
+
+Let’s understand this rule considering the time complexity: O(4N3 + 3N2 + 8). Now, if we consider the value of N as 105 the time complexity will be like this:  O(4*1015 + 3*1010 + 8). In this case, the constant term 8 is very less significant in terms of changing the time complexity with different values of N. That is why we should avoid the constant terms while calculating the time complexity.
+
+If we want to think of this case in terms of code, we can consider the following code:
+
+![image](https://github.com/itsankit07/A2Z-DSA/assets/91182445/bd2bde3f-f5c9-49f1-9e65-3107725c38db)
+
+Here, the first step (i.e. int x = 2) will be executed in unit time i.e. constant time. The precise time complexity is O(3N + 1) but in this case, the constant 1 is very less significant. So we will write the time complexity as O(3N) avoiding the constant term.
+
+**3. Avoid the lower values:**
+Now, in the previous example, the given time complexity is O(4N3 + 3N2 + 8) and we have reduced it to O(4N3 + 3N2). Here, we can clearly observe if the value of N is a large number, the second term i.e. 3N2 will also be a less significant term. For example, if the value of N is 105 then the term 3*1010 becomes less significant with respect to 4*1015. So, we can also avoid the lower values and the final time complexity will be O(4N3 )
+
+**Note:** A point to remember is that we can actually ignore the constant coefficients as well. For example, considering the time complexity O(4N3 ) as O(N3 ) is also correct.
+
+Apart from the widely used Big O notation, there are several other notations. Among them, the two most common are the Theta notation(θ) and the Omega notation(Ω). The differences are shown in the below table:
+
+![image](https://github.com/itsankit07/A2Z-DSA/assets/91182445/cbdc38ed-0227-48ef-a0c7-ac9aa8e1deeb)
+
+These concepts are not much important from the interview perspective and so here we are not going to discuss these in detail. Please follow any standard textbook if you want the details and the mathematical derivations.
+
+Let’s quickly discuss some questions to make the concepts clear:
+
+**What is Space Complexity?**
+The term space complexity generally refers to the memory space that a code uses while being executed. Again space complexity is also dependent on the machine and so we are going to represent the space complexity using the Big O notation instead of using the standard units of memory like MB, GB, etc.
+
+**Definition:**
+Space complexity generally represents the summation of auxiliary space and the input space. Auxiliary space refers to the space that we use additionally to solve a problem. And input space refers to the space that we use to store the inputs.
+
+Let’s understand this using the following example:
+
+![image](https://github.com/itsankit07/A2Z-DSA/assets/91182445/563e356e-d7e8-496c-ae88-7f1fd998a60a)
+
+The variables a and b are used to store the inputs but c refers to the space we are using to solve the problem and c is the auxiliary space. Here the space complexity will be O(3).
+
+Similarly, if we use an array of size n, the space complexity will be O(N).
+
+**Good coding practice:**
+
+If a question of adding two numbers like a and b is asked, one of the possible methods will be 
+
+b = a+b. In this case, the space complexity is definitely reduced as we are not using any extra variable but this is not a good practice to manipulate the given inputs or data. In an interview, we must be careful that we will not manipulate the given data even if the space complexity becomes 2N instead of N. If the interviewer specifically instructs us to manipulate, then only we should attempt this method.
+
+Note: A company may use the same data for different purposes. That is why we should not attempt to manipulate the given data for reducing the space complexity. So, we will never manipulate the given data i.e. the inputs until the interviewer specifically says so.
+
+We are now pretty much done with our concepts of time complexity and space complexity. Now, we will briefly discuss some points about competitive programming or the online judge.
+
+**Points to remember:**
+
+In competitive programming or in the platforms like Leetcode and GeeksforGeeks, we generally run our codes on online servers. Most of these servers execute roughly 108 operations in approximately 1 second i.e. 1s. We must be careful that if the time limit is given as 2s the operations in our code must be roughly 2*108, not 1016. Similarly, 5s refers to 5*108. Simply, if we want our code to be run in 1s, the time complexity of our code must be around O(108) avoiding the constants and the lower values.
+
+
